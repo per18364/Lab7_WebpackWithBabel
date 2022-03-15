@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -11,7 +11,11 @@ module.exports = {
 		filename: 'main.[hash].bundle.js', //nombre del archivo que queremos generar para el bundle
 		path: path.resolve(__dirname, 'bundle') //almacenemos el output en un nuevo directorio dentro de nuestro root path
 	},
-	plugins: [ new CleanWebpackPlugin(), new MiniCssExtractPlugin({ filename: 'main.[hash].bundle.css' }) ],
+	plugins: [
+		new CleanWebpackPlugin(),
+		new MiniCssExtractPlugin({ filename: 'main.[hash].bundle.css' }),
+		new HtmlWebpackPlugin({ template: './src/index.html' })
+	],
 	module: {
 		rules: [
 			{
