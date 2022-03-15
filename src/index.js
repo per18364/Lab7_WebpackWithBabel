@@ -1,6 +1,7 @@
 import './pages/elInicio.js';
 import './pages/negacion.js';
 import './pages/añosDeDepre.js';
+import './assets/index.css';
 
 let footer = document.getElementById('footer');
 let lista = document.createElement('ol');
